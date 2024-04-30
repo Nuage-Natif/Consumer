@@ -59,5 +59,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
+        dockerfile: src/main/docker/Dockerfile.jvm
         push: true
         tags: ${{ steps.imageName.outputs.imageName }}:${{ steps.versionNumber.outputs.versionNumber }}
