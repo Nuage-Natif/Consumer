@@ -56,10 +56,9 @@ jobs:
       run: echo "imageName=$(echo ${{ github.repository }} | awk '{print tolower($0)}')" >> $GITHUB_OUTPUT
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v5.3
       with:
         context: .
         file: src/main/docker/Dockerfile.jvm
         push: true
         tags: ${{ steps.imageName.outputs.imageName }}:${{ steps.versionNumber.outputs.versionNumber }}
-        registry: ghcr.io
